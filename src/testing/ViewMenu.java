@@ -46,5 +46,12 @@ public class ViewMenu extends View{
 		System.out.println("Built logout.");
 	}
 
+	@Override
+	public void refresh(String[] parameters) {
+
+		// ... update some data here, maybe update a table with some SQL?
+		
+	}
+
 
 }

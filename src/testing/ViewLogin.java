@@ -47,4 +47,11 @@ public class ViewLogin extends View{
 		
 		System.out.println("Built login.");
 	}
+
+	@Override
+	public void refresh(String[] parameters) {
+		
+		// ... update some data here, maybe have an error message for logging in incorrectly?
+		
+	}
 }

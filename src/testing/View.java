@@ -83,6 +83,13 @@ public abstract class View {
 	}
 	
 	// Method to be overriden by subclasses
+	// Rebuild is designed to build the entire scene
+	// regardless of state
 	public abstract void rebuild(String[] parameters);
+	
+	// Refresh is designed to refresh data present on
+	// the scene and shouldn't add or remove nodes
+	// unless required by the data
+	public abstract void refresh(String[] parameters);
 
 }
