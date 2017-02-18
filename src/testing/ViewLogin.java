@@ -2,7 +2,7 @@ package testing;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.Pane;
 
 /**
  * Sample class to implement View functionality
@@ -13,7 +13,7 @@ public class ViewLogin extends View{
 
 	private Button login;
 	
-	public ViewLogin(Region layout, SceneType sceneType) {
+	public ViewLogin(Pane layout, SceneType sceneType) {
 		super(layout, sceneType);
 	}
 

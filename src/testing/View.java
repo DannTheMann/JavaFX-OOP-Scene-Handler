@@ -2,6 +2,7 @@ package testing;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 
 /**
@@ -12,7 +13,7 @@ import javafx.scene.layout.Region;
 public abstract class View {
 	
 	private final Scene scene; // The root scene of the view
-	private final Region layout; // The root layout of the scene
+	private final Pane layout; // The root layout of the scene
 	private final SceneType type; // The 'type' of scene
 	
 	/* fields to decide resolutions across all views */
@@ -30,7 +31,7 @@ public abstract class View {
 	 * @param layout The layout, i.e BorderPane
 	 * @param sceneType The SceneType
 	 */
-	public View(Region layout, SceneType sceneType){
+	public View(Pane layout, SceneType sceneType){
 		this.scene = new Scene(layout, MIN_HEIGHT, MIN_WIDTH);
 		this.layout = layout;
 		this.layout.setMaxHeight(MAX_HEIGHT);
@@ -73,13 +74,25 @@ public abstract class View {
 	// on changing the scene
 	public final boolean buildScene(String[] parameters){
 		
-		if(built){
+		if(built){ // Scene already built, no need to rebuild
 			return false;
 		}
 		
 		built = true;		
 		rebuild(parameters);	
 		return true;
+	}
+	
+	// Used in conjunction with ViewController.rebuildCurrentView as to wipe
+	// the current Views layout children and then call the Views rebuild
+	// function so it can populate the view again
+	public final boolean buildScene(String[] parameters, boolean overwrite){		
+		if(overwrite || (!built)){
+			built = false;
+			layout.getChildren().clear(); // Clear all nodes and elements in the scene
+			return buildScene(parameters);
+		}
+		return false;
 	}
 	
 	// Method to be overriden by subclasses
