@@ -80,13 +80,13 @@ public class ViewController extends Application {
 
 	// Rebuild the entire view, constructing any new buttons etc. Not ideally
 	// designed to be used unless necessary.
-	public void rebuildCurrentView(String[] parameters) {
-		currentView.buildScene(parameters, true);
+	public boolean rebuildCurrentView(String[] parameters) {
+		return currentView.buildScene(parameters, true);
 	}
 
 	// Refresh the current view, update some data displayed in the view
-	public void refreshCurrentView(String[] parameters) {
-		currentView.refresh(parameters);
+	public boolean refreshCurrentView(String[] parameters) {
+		return currentView.refresh(parameters);
 	}
 
 	// Launch the JavaFX application

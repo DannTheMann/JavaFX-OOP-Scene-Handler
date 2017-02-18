@@ -18,7 +18,7 @@ public class ViewMenu extends View{
 	}
 
 	@Override
-	public void rebuild(String[] parameters) {
+	public boolean rebuild(String[] parameters) {
 		
 		// Get the root element, we know it's a borderpane (if not potential error!)
 		BorderPane bp = (BorderPane) getLayout();
@@ -44,13 +44,16 @@ public class ViewMenu extends View{
 		}
 		
 		System.out.println("Built logout.");
+		
+		return true;
 	}
 
 	@Override
-	public void refresh(String[] parameters) {
+	public boolean refresh(String[] parameters) {
 
 		// ... update some data here, maybe update a table with some SQL?
 		
+		return true;
 	}
 
 

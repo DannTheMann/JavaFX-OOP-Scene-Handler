@@ -18,7 +18,7 @@ public class ViewLogin extends View{
 	}
 
 	@Override
-	public void rebuild(String[] parameters) {
+	public boolean rebuild(String[] parameters) {
 		// .. build something
 		
 		// Get the root element, we know it's a borderpane (if not potential error!)
@@ -46,12 +46,15 @@ public class ViewLogin extends View{
 		}
 		
 		System.out.println("Built login.");
+		
+		return true;
 	}
 
 	@Override
-	public void refresh(String[] parameters) {
+	public boolean refresh(String[] parameters) {
 		
 		// ... update some data here, maybe have an error message for logging in incorrectly?
 		
+		return false;
 	}
 }
