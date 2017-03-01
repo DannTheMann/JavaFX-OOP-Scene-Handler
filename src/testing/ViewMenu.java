@@ -27,7 +27,7 @@ public class ViewMenu extends View{
 			
 			// Utilise a utility class to create a button
 			// JavaFX uses CSS for styling
-			logout = GraphicsUtil.createNewButton("Login", "NO_CSS");
+			logout = GraphicsUtil.createNewButton("Logout", "NO_CSS");
 			
 			// Using lambda to handle event calls
 			logout.setOnAction((event)->{

@@ -43,8 +43,8 @@ public class ViewController extends Application {
 		stage.setTitle(TITLE);
 
 		// Load all views
-		views.put(SceneType.LOGIN, new ViewLogin(new BorderPane(), SceneType.LOGIN));
-		views.put(SceneType.MENU, currentView);
+		views.put(SceneType.LOGIN, currentView);
+		views.put(SceneType.MENU, new ViewMenu(new BorderPane(), SceneType.MENU));
 
 		// Build the current scene, create all it's buttons, text etc.
 		// Takes 'parameters' these are whatever you want them to be, a String[]
@@ -91,7 +91,6 @@ public class ViewController extends Application {
 
 	// Launch the JavaFX application
 	public void launch() {
-		System.out.println("Launching...");
 		super.launch();
 	}
 
