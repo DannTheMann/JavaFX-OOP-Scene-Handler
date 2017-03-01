@@ -1,8 +1,12 @@
 package testing;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * Sample class to implement View functionality
@@ -11,7 +15,8 @@ import javafx.scene.layout.Pane;
  */
 public class ViewMenu extends View{
 	
-	private Button logout;
+	private Button switchButton;
+	private Text text;
 	
 	public ViewMenu(Pane layout, SceneType sceneType){
 		super(layout, sceneType);
@@ -25,12 +30,15 @@ public class ViewMenu extends View{
 		
 		{
 			
+			VBox vbox = new VBox(5);
+			
 			// Utilise a utility class to create a button
 			// JavaFX uses CSS for styling
-			logout = GraphicsUtil.createNewButton("Logout", "NO_CSS");
+			switchButton = GraphicsUtil.createNewButton("Switch", "NO_CSS");
+			text = GraphicsUtil.createNewText("Here is Scene 2", "NO_CSS");
 			
 			// Using lambda to handle event calls
-			logout.setOnAction((event)->{
+			switchButton.setOnAction((event)->{
 				
 				// If clicked, change the scene to whatever matches in our MAP
 				// to SceneType.LOGIN (I.e ViewLogin)
@@ -38,7 +46,14 @@ public class ViewMenu extends View{
 				
 			});
 			
-			bp.setCenter(logout);
+			vbox.getChildren().add(switchButton);
+			vbox.getChildren().add(text);
+			
+			vbox.setAlignment(Pos.CENTER);
+			
+			// Set the login button
+			bp.setTop(vbox);
+			bp.setPadding(new Insets(20,20,20,20));
 			
 			
 		}
